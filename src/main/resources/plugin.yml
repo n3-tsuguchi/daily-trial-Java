@@ -1,0 +1,10 @@
+name: plugin
+version: '${version}'
+main: org.example.plugin.plugin.Plugin
+api-version: '1.21'
+
+commands:
+  player:
+    description: 'Player command'
+    usage: '/player <subCommands>'
+    aliases: [p]
