@@ -54,7 +54,7 @@ public class Commands implements CommandExecutor {
                     Location particleLocation = startLocation.clone().add(direction.clone().multiply(d));
                     p.getWorld().spawnParticle(Particle.FIREWORK, particleLocation, 0, 0, 0, 0, 0.1);
                 }
-                Location explosionLocation = startLocation.clone().add(direction.clone().multiply(20));
+                Location explosionLocation = startLocation.clone().add(direction.clone().multiply(10));
                 p.getWorld().createExplosion(explosionLocation, 1f, true);
                 p.sendMessage("流れ星を落としました");
 
