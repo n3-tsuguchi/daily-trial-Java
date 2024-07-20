@@ -46,10 +46,10 @@ public final class Plugin extends JavaPlugin implements Listener {
         inventory.setItem(EquipmentSlot.HAND, sword);
 
         ItemStack pickaxe = new ItemStack(Material.NETHERITE_PICKAXE);
-        inventory.setItem(EquipmentSlot.OFF_HAND, pickaxe);
+        inventory.addItem(pickaxe);
 
         ItemStack shield = new ItemStack(Material.SHIELD);
-        inventory.setItem(EquipmentSlot.HAND, shield);
+        inventory.setItem(EquipmentSlot.OFF_HAND, shield);
 
         ItemStack chicken = new ItemStack(Material.COOKED_CHICKEN, 64);
         inventory.addItem(chicken);
