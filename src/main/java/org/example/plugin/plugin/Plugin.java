@@ -13,6 +13,7 @@ public final class Plugin extends JavaPlugin {
         // Plugin startup logic
         getServer().getPluginCommand("player").setExecutor(new Commands());
         PlayerInventory inventory = getServer().getPlayer("player").getInventory();
+        getServer().getPlayer("player").getInventory();
 
         ItemStack helmet = new ItemStack(Material.NETHERITE_HELMET);
         inventory.setItem(EquipmentSlot.HEAD, helmet);

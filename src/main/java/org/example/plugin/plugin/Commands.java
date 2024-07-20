@@ -44,7 +44,7 @@ public class Commands implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("shootingstar")) {
                 Player p = (Player) sender;
-                p.getWorld().createExplosion(p.getLocation(), 3f);
+                p.getWorld().createExplosion(p.getLocation(), 1f, true);
                 p.sendMessage("流れ星を落としました");
 
             }
@@ -57,7 +57,7 @@ public class Commands implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("breath")) {
                 Player p = (Player) sender;
-                p.getWorld().createExplosion(p.getLocation(), 3f, true);
+                p.getWorld().createExplosion(p.getLocation(), 1f, true);
                 p.sendMessage("ドラゴンブレスを吐きました");
             }
         }
