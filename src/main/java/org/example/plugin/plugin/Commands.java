@@ -47,7 +47,7 @@ public class Commands implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("shootingstar")) {
                 Player p = (Player) sender;
-                Location startLocation = p.getEyeLocation().add(20, 100, 0);
+                Location startLocation = p.getLocation().add(p.getLocation().getDirection().multiply(50)).add(0, 50, 0);
                 Vector direction = new Vector(0, -1, 0);
 
                 for (double d = 0; d < 10; d += 0.5) {
