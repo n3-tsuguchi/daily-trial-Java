@@ -47,9 +47,15 @@ public class Commands implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("shootingstar")) {
                 Player p = (Player) sender;
-                Location location = p.getEyeLocation().add(p.getLocation().getDirection().multiply(2));
+                Location startLocation = p.getEyeLocation();
+                Vector direction = startLocation.getDirection();
+
+                for (double d = 0; d < 10; d += 0.1) {
+                    Location particleLocation = startLocation.clone().add(direction.clone().multiply(d));
+                    p.getWorld().spawnParticle(Particle.FIREWORK, particleLocation, 0, 0, 0, 0, 0.1);
+                }
+                Location explosionLocation = startLocation.clone().add(direction.clone().multiply(20));
                 p.getWorld().createExplosion(p.getLocation(), 1f, true);
-                p.getWorld().spawnParticle(Particle.FIREWORK, p.getLocation(), 100, 0.5, 0.5, 0.5, 0.1);
                 p.sendMessage("流れ星を落としました");
 
             }
@@ -62,9 +68,16 @@ public class Commands implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("breath")) {
                 Player p = (Player) sender;
-                Location location = p.getEyeLocation().add(p.getLocation().getDirection().multiply(2));
-                p.getWorld().createExplosion(p.getLocation(), 1f, true);
-                p.getWorld().spawnParticle(org.bukkit.Particle.DRAGON_BREATH, location, 100, 0.5, 0.5, 0.5, 0.1);
+                Location startLocation = p.getEyeLocation();
+                Vector direction = startLocation.getDirection();
+
+                for (double d = 0; d < 10; d += 0.1) {
+                    Location particleLocation = startLocation.clone().add(direction.clone().multiply(d));
+                    p.getWorld().spawnParticle(Particle.DRAGON_BREATH, particleLocation, 0, 0, 0, 0, 0.1);
+                }
+
+                Location explosionLocation = startLocation.clone().add(direction.clone().multiply(2));
+                p.getWorld().createExplosion(explosionLocation, 1f, true);
                 p.sendMessage("ドラゴンブレスを吐きました");
             }
         }
