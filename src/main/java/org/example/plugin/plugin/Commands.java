@@ -1,5 +1,7 @@
 package org.example.plugin.plugin;
 
+import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -44,7 +46,9 @@ public class Commands implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("shootingstar")) {
                 Player p = (Player) sender;
+                Location location = p.getEyeLocation().add(p.getLocation().getDirection().multiply(2));
                 p.getWorld().createExplosion(p.getLocation(), 1f, true);
+                p.getWorld().spawnParticle(Particle.FIREWORK, p.getLocation(), 100, 50, 50, 0, 0.1);
                 p.sendMessage("流れ星を落としました");
 
             }
@@ -57,7 +61,9 @@ public class Commands implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("breath")) {
                 Player p = (Player) sender;
+                Location location = p.getEyeLocation().add(p.getLocation().getDirection().multiply(2));
                 p.getWorld().createExplosion(p.getLocation(), 1f, true);
+                p.getWorld().spawnParticle(org.bukkit.Particle.DRAGON_BREATH, location, 100, 50, 50, 0, 0.1);
                 p.sendMessage("ドラゴンブレスを吐きました");
             }
         }
