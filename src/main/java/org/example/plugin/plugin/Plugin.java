@@ -3,6 +3,7 @@ package org.example.plugin.plugin;
 import org.bukkit.Material;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Plugin extends JavaPlugin {
@@ -11,13 +12,28 @@ public final class Plugin extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginCommand("player").setExecutor(new Commands());
-        getServer().getInventory().setItem(EquipmentSlot.HAND, new ItemStack(Material.NETHERITE_SWORD));
-        getServer().getInventory().setItem(EquipmentSlot.OFF_HAND, new ItemStack(Material.SHIELD));
-        getServer().getInventory().setItem(EquipmentSlot.CHEST, new ItemStack(Material.NETHERITE_CHESTPLATE));
-        getServer().getInventory().setItem(EquipmentSlot.LEGS, new ItemStack(Material.NETHERITE_LEGGINGS));
-        getServer().getInventory().setItem(EquipmentSlot.FEET, new ItemStack(Material.NETHERITE_BOOTS));
-        getServer().getInventory().setItem(EquipmentSlot.HEAD, new ItemStack(Material.NETHERITE_HELMET));
-        getServer().getInventory().setInventory(new ItemStack(Material.COOKED_CHICKEN, 64));
+        PlayerInventory inventory = getServer().getPlayer("player").getInventory();
+
+        ItemStack helmet = new ItemStack(Material.NETHERITE_HELMET);
+        inventory.setItem(EquipmentSlot.HEAD, helmet);
+
+        ItemStack chestplate = new ItemStack(Material.NETHERITE_CHESTPLATE);
+        inventory.setItem(EquipmentSlot.CHEST, chestplate);
+
+        ItemStack leggings = new ItemStack(Material.NETHERITE_LEGGINGS);
+        inventory.setItem(EquipmentSlot.LEGS, leggings);
+
+        ItemStack boots = new ItemStack(Material.NETHERITE_BOOTS);
+        inventory.setItem(EquipmentSlot.FEET, boots);
+
+        ItemStack sword = new ItemStack(Material.NETHERITE_SWORD);
+        inventory.setItem(EquipmentSlot.HAND, sword);
+
+        ItemStack shield = new ItemStack(Material.SHIELD);
+        inventory.setItem(EquipmentSlot.OFF_HAND, shield);
+
+        ItemStack food = new ItemStack(Material.COOKED_BEEF, 64);
+        inventory.addItem(food);
     }
 
     @Override
