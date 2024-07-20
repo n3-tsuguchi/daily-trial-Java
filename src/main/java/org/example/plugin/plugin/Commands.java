@@ -47,10 +47,10 @@ public class Commands implements CommandExecutor {
 
             if (args[0].equalsIgnoreCase("shootingstar")) {
                 Player p = (Player) sender;
-                Location startLocation = p.getEyeLocation();
-                Vector direction = startLocation.getDirection();
+                Location startLocation = p.getEyeLocation().add(20, 100, 0);
+                Vector direction = new Vector(0, -1, 0);
 
-                for (double d = 0; d < 10; d += 0.1) {
+                for (double d = 0; d < 10; d += 0.5) {
                     Location particleLocation = startLocation.clone().add(direction.clone().multiply(d));
                     p.getWorld().spawnParticle(Particle.FIREWORK, particleLocation, 0, 0, 0, 0, 0.1);
                 }
