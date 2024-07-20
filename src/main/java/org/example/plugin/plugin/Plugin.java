@@ -32,8 +32,8 @@ public final class Plugin extends JavaPlugin {
         ItemStack shield = new ItemStack(Material.SHIELD);
         inventory.setItem(EquipmentSlot.OFF_HAND, shield);
 
-        ItemStack food = new ItemStack(Material.COOKED_BEEF, 64);
-        inventory.addItem(food);
+        ItemStack beaf = new ItemStack(Material.COOKED_BEEF, 64);
+        inventory.addItem(beaf);
     }
 
     @Override
